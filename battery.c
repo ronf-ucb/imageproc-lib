@@ -84,8 +84,9 @@ static void batHandleISR(void) {
 
 }
 
-static void batDefaultCallback(void) {
+#define __LOWBATT_STOPS_MOTORS
 
+static void batDefaultCallback(void) {
     unsigned char i;
 
     CRITICAL_SECTION_START; // Disable interrupts
@@ -102,6 +103,9 @@ static void batDefaultCallback(void) {
         for (i=1; i<=4; i++) { SetDCMCPWM(i, 0, 0); }
         CloseMCPWM();
     #endif
+
+	EmergencyStop(); /* turn off motors and pid interrupts */
+
 
     // Slowly blink all LEDs 5 times (1 second interval)
     for (i=0; i<5; ++i) {
