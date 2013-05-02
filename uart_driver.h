@@ -43,11 +43,14 @@
 #ifndef UART_H
 #define	UART_H
 
-#define UART_TX_IDLE        0xFF
-#define UART_TX_SEND_SIZE   0xFE
+#define UART_TX_IDLE        0x00
+#define UART_TX_SEND_SIZE   0x01
+#define UART_TX_PACKET 0x02
 
-#define UART_RX_IDLE        0xFF
-#define UART_RX_CHECK_SIZE  0xFE
+// state machine for receiving serial packets
+#define UART_RX_IDLE        0x00
+#define UART_RX_CHECK_SIZE  0x01
+#define UART_RX_PACKET 0x02
 
 #define UART_MAX_SIZE 200
 
