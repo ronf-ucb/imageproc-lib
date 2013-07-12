@@ -47,6 +47,7 @@
 #include "ports.h"
 #include "pwm.h"
 #include "utils.h"
+#include "pid-ip2.5.h"
 #include <stdlib.h>
 
 // =========== Static Variables ================================================
