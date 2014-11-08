@@ -4,6 +4,7 @@ make LEDs blink even if interrupts are over riding LED
 setting */
 // leave LEDs off when done 
 
+#include <xc.h>
 #include "led.h"
 #include "stopwatch.h"
 

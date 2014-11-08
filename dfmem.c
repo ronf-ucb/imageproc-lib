@@ -57,7 +57,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "p33Fxxxx.h"
+// #include "p33Fxxxx.h"
 #include "spi.h"
 #include "dfmem.h"
 #include "spi_controller.h"        // For DMA
@@ -479,6 +479,8 @@ void dfmemResumeFromDeepSleep()
     dfmemDeselectChip();
 }
 
+
+/****  FLASH byte 0 overwritten if DMA is not length -1... see spi_controller.c ******/
 void dfmemSave(unsigned char* data, unsigned int length)
 {   //If this write will not fit into the buffer, then
        if (currentBufferOffset + length > dfmem_geo.buffer_size) 

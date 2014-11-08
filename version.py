@@ -16,7 +16,7 @@ if len(sys.argv) < 2:
     sys.exit()
 
 #filename   = 'source/version-string.h'
-filename = '../imageproc-lib/version-string.h'
+filename = '../../imageproc-lib/version-string.h'
 fileheader = 'version.h'
 version    = sys.argv[1] # version string within single quotes
 date       = time.strftime("%a %b %d %H:%M:%S %Y")

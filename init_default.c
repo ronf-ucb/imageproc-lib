@@ -39,7 +39,8 @@
  *
  */
 
-#include "p33Fxxxx.h"
+// #include "p33Fxxxx.h"
+#include <xc.h>
 #include "adc.h"
 
 /* Configuration Bits (macros defined in processor header) */
