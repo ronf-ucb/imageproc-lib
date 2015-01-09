@@ -169,6 +169,13 @@ void SetupPorts(void)
     LATD = 0x0000;
     TRISD = 0xffff;
 
+    // RF0 should be 0 output (FSYNC for mpu6000 gyro/accel). Usually driven by camera HREF
+    // 1 for input, 0 for output
+    LATF =0x0000;
+    TRISF = 0b1111111111111110;
+    _LATF0 = 0;
+
+
     // DFMEM: SPI2 Slave Select is an output (RG9)
     LATG  = 0b1000000000;
     TRISG = 0b0111111111;
