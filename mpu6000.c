@@ -290,6 +290,14 @@ static void writeReg(unsigned char regaddr, unsigned char data )
     spic2EndTransaction();
 }
 
+ void mpuWriteReg(unsigned char regaddr, unsigned char data )
+{
+    spic2BeginTransaction(MPU_CS);
+    spic2Transmit(regaddr);
+    spic2Transmit(data);
+    spic2EndTransaction();
+}
+
 /*****************************************************************************
 * Function Name : readReg
 * Description : Read a register
@@ -297,6 +305,17 @@ static void writeReg(unsigned char regaddr, unsigned char data )
 * Return Value : register contents
 *****************************************************************************/
 static unsigned char readReg(unsigned char regaddr) {
+  unsigned char c;
+
+  spic2BeginTransaction(MPU_CS);
+  spic2Transmit(regaddr | READ);
+  c = spic2Receive();
+  spic2EndTransaction();
+
+  return c;
+}
+
+unsigned char mpuReadReg(unsigned char regaddr) {
   unsigned char c;
 
   spic2BeginTransaction(MPU_CS);

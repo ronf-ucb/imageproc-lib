@@ -39,6 +39,8 @@
 
 
 // Registers
+#define MPU_SELF_TEST_Z (15)
+#define MPU_SELF_TEST_A (16)
 #define MPU_REG_RATEDIV (25)
 #define MPU_REG_CONFIG (26)
 #define MPU_REG_GYROCONFIG (27)
@@ -94,6 +96,7 @@ float mpuGetTempScale(void);
 // Read data from MPU
 // This begins an asynchronous update.
 void mpuBeginUpdate(void);
-
+unsigned char mpuReadReg(unsigned char regaddr);
+void mpuWriteReg(unsigned char regaddr, unsigned char data );
 
 #endif // __MPU6000_H
